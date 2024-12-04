@@ -1,0 +1,741 @@
+/* Scoped Styles for Dashboard Only */
+
+
+/* Importing Poppins Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Dashboard Container */
+
+#dashboard {
+    background-color: #f8f9fa;
+    /* Light background for the dashboard */
+    padding: 30px;
+    margin-left: 270px;
+    /* Sidebar margin */
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to entire dashboard */
+}
+
+
+/* Dashboard Title */
+
+#dashboard h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to title */
+}
+
+
+/* Dashboard Description */
+
+#dashboard p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to paragraph */
+}
+
+
+/* Dashboard Cards Container */
+
+#dashboard .dashboard-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+
+/* Individual Card Styling */
+
+#dashboard .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to cards */
+}
+
+
+/* Hover Effect on Cards */
+
+#dashboard .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Card Title */
+
+#dashboard .card h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to card titles */
+}
+
+
+/* Card Description */
+
+#dashboard .card p {
+    font-size: 1.5rem;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to card descriptions */
+}
+
+
+/* Color Styles for Cards */
+
+#dashboard .card.blue {
+    background-color: #007bff;
+    color: white;
+}
+
+#dashboard .card.green {
+    background-color: #28a745;
+    color: white;
+}
+
+#dashboard .card.cyan {
+    background-color: #17a2b8;
+    color: white;
+}
+
+#inventory {
+    background-color: #f8f9fa;
+    /* Light background */
+    padding: 30px;
+    margin-left: 270px;
+    /* Sidebar margin */
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to the inventory page */
+}
+
+#inventory h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to the header */
+}
+
+#inventory .form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to form container */
+}
+
+#inventory .form-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to the subheading */
+}
+
+#inventory .form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to input fields */
+}
+
+#inventory .form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to button */
+}
+
+#inventory .form-container button:hover {
+    background-color: #0056b3;
+}
+
+#inventory .table {
+    width: 100%;
+    margin-top: 40px;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to table */
+}
+
+#inventory .table th,
+#inventory .table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#inventory .table th {
+    background-color: #007bff;
+    color: white;
+}
+
+#inventory .table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+#inventory .action-form {
+    display: inline;
+}
+
+#inventory .btn {
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to buttons */
+}
+
+#inventory .btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+#inventory .btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+#inventory .btn-warning {
+    background-color: #ffc107;
+    color: white;
+}
+
+#inventory .btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+#inventory .btn-success:hover {
+    background-color: #218838;
+}
+
+#inventory .btn-danger:hover {
+    background-color: #c82333;
+}
+
+#inventory .btn-warning:hover {
+    background-color: #e0a800;
+}
+
+#inventory .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+/* Hidden Edit Form Styling */
+
+#inventory .edit-row {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+#inventory .edit-form input {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font to input fields in edit form */
+}
+
+
+/* General Styles for Manage Users Page */
+
+#manage-users {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#manage-users h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2e3b4e;
+}
+
+#manage-users h3 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+
+/* Cards */
+
+#manage-users .manage-users-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+
+/* Form Styles */
+
+#manage-users .manage-users-input-group {
+    margin-bottom: 15px;
+}
+
+#manage-users .manage-users-input-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#manage-users .manage-users-input-group input,
+#manage-users .manage-users-input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#manage-users .manage-users-input-group input:focus,
+#manage-users .manage-users-input-group select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+
+/* Buttons */
+
+#manage-users button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#manage-users button:hover {
+    background-color: #0056b3;
+}
+
+#manage-users .manage-users-delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#manage-users .manage-users-delete-btn:hover {
+    background-color: #c0392b;
+}
+
+
+/* Table Styles */
+
+#manage-users .manage-users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#manage-users .manage-users-table th,
+#manage-users .manage-users-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#manage-users .manage-users-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+#manage-users .manage-users-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 768px) {
+    #manage-users {
+        padding: 15px;
+    }
+    #manage-users .manage-users-input-group input,
+    #manage-users .manage-users-input-group select {
+        padding: 8px;
+    }
+    #manage-users button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+
+/* Orders Page Scoped Styles */
+
+#orders-page {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#orders-page h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2e3b4e;
+}
+
+
+/* Table Styles */
+
+#orders-page .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#orders-page .orders-table th,
+#orders-page .orders-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#orders-page .orders-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+#orders-page .orders-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 768px) {
+    #orders-page {
+        padding: 15px;
+    }
+    #orders-page .orders-table th,
+    #orders-page .orders-table td {
+        padding: 10px;
+    }
+}
+
+
+/* Base styles for the page */
+
+#report {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-left: 270px;
+    /* Assuming a sidebar exists */
+}
+
+#report .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#report h1,
+#report h3 {
+    text-align: center;
+    color: #333;
+}
+
+#report .list-group {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+#report .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(45deg, #d1e0e0, #f2f9f9);
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+
+#report .list-group-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+#report .badge {
+    background-color: #f9c74f;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+#report .log-table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    background-color: #fafafa;
+}
+
+#report .log-table th,
+#report .log-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+#report .log-table th {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+#report .log-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+#report .text-center {
+    text-align: center;
+}
+
+#report .mt-5 {
+    margin-top: 30px;
+}
+
+
+/*browse items*/
+
+
+/* Overall Page Style */
+
+#products-page {
+    background-color: #f9f9f9;
+    padding: 30px;
+    margin-left: 270px;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font */
+}
+
+#products-page h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Search Form */
+
+#products-page .search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#products-page .search-form input[type="text"] {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    width: 50%;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#products-page .search-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+#products-page .search-form button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Product Table */
+
+#products-page .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#products-page .product-table th,
+#products-page .product-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Poppins', sans-serif;
+}
+
+#products-page .product-table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#products-page .product-table td {
+    background-color: #fff;
+    color: #555;
+}
+
+
+/* Hover Effect for Table Rows */
+
+#products-page .product-table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Table Cell Style */
+
+#products-page .product-table td {
+    font-size: 1rem;
+}
+
+
+/* No Products Found Message */
+
+#products-page .product-table td[colspan="5"] {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    font-style: italic;
+}
+
+
+/* General Styles */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Use Poppins font */
+    background-color: #f8f9fa;
+    /* Light background */
+}
+
+
+/* Help & Support Page Styling */
+
+#help-support-page {
+    padding: 30px;
+}
+
+
+/* Page Title */
+
+#help-support-page h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Custom Card Styles */
+
+.card.custom-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.card-header.bg-primary {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card-body {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.card-body p {
+    margin: 10px 0;
+}
+
+.card-body p strong {
+    color: #333;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    #help-support-page h1 {
+        font-size: 2.5rem;
+    }
+    .card.custom-card {
+        margin: 0 15px;
+    }
+}

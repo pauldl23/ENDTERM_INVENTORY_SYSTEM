@@ -1,0 +1,113 @@
+/* Import Poppins Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Sidebar Styling for Admin/User */
+
+#sidebar-admin-user {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: linear-gradient(180deg, #ff9a00, #ff5500);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+    /* Apply Poppins font */
+}
+
+#sidebar-admin-user .logo {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+    background: white;
+    color: #ff5500;
+    border-radius: 10px;
+}
+
+
+/* Sidebar Navigation */
+
+#sidebar-admin-user nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar-admin-user nav ul li {
+    margin: 10px 0;
+    text-align: center;
+}
+
+#sidebar-admin-user nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#sidebar-admin-user nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: #ff5500;
+}
+
+#sidebar-admin-user nav ul li a.active {
+    background: white;
+    color: #ff5500;
+    font-weight: bold;
+}
+
+
+/* Adjusting Log Out Section to Move Higher */
+
+#sidebar-admin-user .logout {
+    margin-top: 20px;
+    /* Adjusted to move the logout higher */
+    padding: 10px;
+}
+
+#sidebar-admin-user .logout button {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background: #2d2d2d;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#sidebar-admin-user .logout button:hover {
+    background: white;
+    color: #ff5500;
+}
+
+
+/* Main Content Styling */
+
+#main-content {
+    margin-left: 270px;
+    padding: 20px;
+    width: calc(100% - 270px);
+    background: #f9f9f9;
+    box-sizing: border-box;
+}
+
+#main-content h1 {
+    color: #ff5500;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    /* Ensure title also uses Poppins */
+}
