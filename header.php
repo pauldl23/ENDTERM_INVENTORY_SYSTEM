@@ -23,8 +23,7 @@ $usertype = isset($_SESSION['usertype']) ? $_SESSION['usertype'] : 'Guest';
                     <li><a href="dashboard.php" class="sidebar-link" id="dashboard-link">Dashboard</a></li>
                     <li><a href="inventory.php" class="sidebar-link" id="inventory-link">Inventory</a></li>
                     <li><a href="manage_users.php" class="sidebar-link" id="manage-users-link">Manage Users</a></li>
-                    <li><a href="orders.php" class="sidebar-link" id="orders-link">Orders</a></li>
-                    <li><a href="reports.php" class="sidebar-link" id="reports-link">Reports</a></li>
+                    <li><a href="orders.php" class="sidebar-link" id="orders-link">Transaction Log</a></li>
                 <?php elseif ($usertype === 'User'): ?>
                     <li><a href="browse_items.php" class="sidebar-link" id="browse-items-link">Browse Items</a></li>
                     <li><a href="help_support.php" class="sidebar-link" id="help-support-link">Help/Support</a></li>

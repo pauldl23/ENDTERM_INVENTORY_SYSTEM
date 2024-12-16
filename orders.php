@@ -3,10 +3,8 @@ include 'header.php'; // Include the sidebar header
 require 'db_connect.php'; // Connect to the database
 
 // Fetch purchase orders from tbl_transaction
-$query = "SELECT t.transaction_ID, t.inventory_ID, i.product_name, t.transaction_date
-          FROM tbl_transaction t
-          JOIN tbl_inventory i ON t.inventory_ID = i.inventory_ID
-          WHERE t.transaction_type = 'Purchase'";
+$query = "SELECT t.transaction_ID, t.inventory_ID, t.user_id, t.transaction_type, t.transaction_date
+          FROM tbl_transaction t";
 $result = mysqli_query($conn, $query);
 
 // Check if query executed successfully
@@ -35,9 +33,10 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <thead>
             <tr>
                 <th>Transaction ID</th>
-                <th>Inventory ID</th>
-                <th>Product Name</th>
                 <th>Transaction Date</th>
+                <th>Transaction Type</th>
+                <th>User ID</th>
+                <th>Inventory ID</th>
             </tr>
         </thead>
         <tbody>
@@ -45,9 +44,10 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <?php foreach ($orders as $order): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($order['transaction_ID']); ?></td>
-                        <td><?php echo htmlspecialchars($order['inventory_ID']); ?></td>
-                        <td><?php echo htmlspecialchars($order['product_name']); ?></td>
                         <td><?php echo htmlspecialchars($order['transaction_date']); ?></td>
+                        <td><?php echo htmlspecialchars($order['transaction_type']); ?></td>
+                        <td><?php echo htmlspecialchars($order['user_id']); ?></td>
+                        <td><?php echo htmlspecialchars($order['inventory_ID']); ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>

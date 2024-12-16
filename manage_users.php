@@ -20,11 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_user'])) {
     $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
     $usertype = mysqli_real_escape_string($conn, $_POST['usertype']);
 
-    // Hash password before storing it
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    // // Hash password before storing it
+    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert new user into the database
-    $query = "INSERT INTO tbl_users (username, password, firstname, lastname, usertype) VALUES ('$username', '$hashed_password', '$firstname', '$lastname', '$usertype')";
+    $query = "INSERT INTO tbl_users (username, password, firstname, lastname, usertype) VALUES ('$username', '$password', '$firstname', '$lastname', '$usertype')";
     if (mysqli_query($conn, $query)) {
         echo "<p>User added successfully.</p>";
     } else {

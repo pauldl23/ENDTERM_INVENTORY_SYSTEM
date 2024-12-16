@@ -8,13 +8,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_product'])) {
     $product_price = (float)$_POST['product_price'];
     $product_quantity = (int)$_POST['product_quantity'];
     $product_category = trim($_POST['product_category']);
-
+    $user_id = 110025; // Replace with the actual user ID
+    $transaction_type = 'add';
+    $transaction_date = date('Y-m-d');
+    
     if (!empty($product_name) && !empty($product_id)) {
         $query = "INSERT INTO tbl_inventory (product_name, product_ID, product_price, product_quantity, product_category) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("ssdis", $product_name, $product_id, $product_price, $product_quantity, $product_category);
         $stmt->execute();
         $stmt->close();
+    
+        // Insert into the transaction table
+        $insertQuery = "INSERT INTO tbl_transaction (user_ID, inventory_ID, transaction_type, transaction_date) VALUES (?, ?, ?, ?)";
+        $insertStmt = $conn->prepare($insertQuery);
+        // Get the last inserted ID to use as the inventory_ID
+        $last_id = $conn->insert_id;
+        $insertStmt->bind_param("iiss", $user_id, $last_id, $transaction_type, $transaction_date);
+        $insertStmt->execute();
+        $insertStmt->close();
     }
 }
 
@@ -25,34 +37,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_product'])) {
     $product_id = trim($_POST['product_id']);
     $product_price = (float)$_POST['product_price'];
     $product_category = trim($_POST['product_category']);
+    $user_id = 110025; // Replace with the actual user ID
+    $transaction_type = 'edit';
+    $transaction_date = date('Y-m-d');
 
-    $query = "UPDATE tbl_inventory SET product_name = ?, product_ID = ?, product_price = ?, product_category = ? WHERE inventory_ID = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("ssdis", $product_name, $product_id, $product_price, $product_category, $inventory_id);
-    $stmt->execute();
-    $stmt->close();
+    // Update the inventory record
+    $updateQuery = "UPDATE tbl_inventory SET product_name = ?, product_ID = ?, product_price = ?, product_category = ? WHERE inventory_ID = ?";
+    $updateStmt = $conn->prepare($updateQuery);
+    $updateStmt->bind_param("ssdis", $product_name, $product_id, $product_price, $product_category, $inventory_id);
+    $updateStmt->execute();
+    $updateStmt->close();
+
+    // Insert into the transaction table
+    $insertQuery = "INSERT INTO warehouse_db.tbl_transaction (user_ID, inventory_ID, transaction_type, transaction_date) VALUES (?, ?, ?, ?)";
+    $insertStmt = $conn->prepare($insertQuery);
+    $insertStmt->bind_param("iiss", $user_id, $inventory_id, $transaction_type, $transaction_date);
+    $insertStmt->execute();
+    $insertStmt->close();
 }
 
 // Handle Adjust Quantity
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adjust_quantity'])) {
     $inventory_id = (int)$_POST['inventory_id'];
     $quantity_change = $_POST['adjust_quantity'] === 'add' ? (int)$_POST['quantity_change'] : -(int)$_POST['quantity_change'];
+    $user_id = 110025; // Replace with the actual user ID
+    $transaction_date = date('Y-m-d');
+    
 
-    $query = "UPDATE tbl_inventory SET product_quantity = GREATEST(0, product_quantity + ?) WHERE inventory_ID = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("ii", $quantity_change, $inventory_id);
-    $stmt->execute();
-    $stmt->close();
+    // Calculate the absolute value of the quantity change
+    $absolute_quantity_change = abs($quantity_change);
+
+    // Determine the transaction type based on the quantity change
+    $transaction_type = $quantity_change > 0 ? "restock + $absolute_quantity_change" : "deduct - $absolute_quantity_change";
+
+    // Update the inventory record
+    $updateQuery = "UPDATE tbl_inventory SET product_quantity = GREATEST(0, product_quantity + ?) WHERE inventory_ID = ?";
+    $updateStmt = $conn->prepare($updateQuery);
+    $updateStmt->bind_param("ii", $quantity_change, $inventory_id);
+    $updateStmt->execute();
+    $updateStmt->close();
+
+    // Insert into the transaction table
+    $insertQuery = "INSERT INTO warehouse_db.tbl_transaction (user_ID, inventory_ID, transaction_type, transaction_date) VALUES (?, ?, ?, ?)";
+    $insertStmt = $conn->prepare($insertQuery);
+    $insertStmt->bind_param("iiss", $user_id, $inventory_id, $transaction_type, $transaction_date);
+    $insertStmt->execute();
+    $insertStmt->close();
 }
 
 // Handle Delete Product
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_product'])) {
     $inventory_id = (int)$_POST['inventory_id'];
-    $query = "DELETE FROM tbl_inventory WHERE inventory_ID = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $inventory_id);
-    $stmt->execute();
-    $stmt->close();
+    $transaction_type = 'delete';
+    $user_id = 110025; // Replace with the actual user ID
+    $transaction_date = date('Y-m-d');
+
+    // Delete the inventory record
+    $deleteQuery = "DELETE FROM tbl_inventory WHERE inventory_ID = ?";
+    $deleteStmt = $conn->prepare($deleteQuery);
+    $deleteStmt->bind_param("i", $inventory_id);
+    $deleteStmt->execute();
+    $deleteStmt->close();
+
+    // Insert into the transaction table
+    $insertQuery = "INSERT INTO warehouse_db.tbl_transaction (user_ID, inventory_ID, transaction_type, transaction_date) VALUES (?, ?, ?, ?)";
+    $insertStmt = $conn->prepare($insertQuery);
+    $insertStmt->bind_param("iiss", $user_id, $inventory_id, $transaction_type, $transaction_date);
+    $insertStmt->execute();
+    $insertStmt->close();
 }
 
 // Fetch Inventory Items
