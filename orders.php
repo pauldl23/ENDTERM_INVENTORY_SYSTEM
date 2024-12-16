@@ -28,7 +28,7 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <body>
 
 <div id="orders-page" style="margin-left: 270px;">
-    <h1>Purchase Orders</h1>
+    <h1>Transaction History</h1>
     <table class="orders-table">
         <thead>
             <tr>
